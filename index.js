@@ -1,10 +1,10 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import Connection  from './databse/db.js';
-import Routes from '../server/routes/route.js';
+const express =require('express') ;
+const cors =require('cors');
+const bodyParser =require('body-parser') ;
+const Connection  = require('./databse/db') ;
+const Routes = require('../server/routes/route') ;
 
-import dotenv from 'dotenv';
+const dotenv =require('dotenv') ;
 dotenv.config();
 
 const PORT= process.env.PORT || 8000;

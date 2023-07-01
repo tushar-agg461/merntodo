@@ -1,7 +1,7 @@
-import Todo from "../model/Todo.js";
+const Todo =require("../model/Todo") ;
 
 
-export const addTodo = async (req, res) => {
+ const addTodo = async (req, res) => {
     try {
         const newTodo = Todo.create({
             data: req.body.data,
@@ -17,7 +17,7 @@ export const addTodo = async (req, res) => {
     }
 }
 
-export const getAllTodo = async (req, res) => {
+ const getAllTodo = async (req, res) => {
     try {
         const todos = await Todo.find({}).sort({ 'createdAt': -1 });
 
@@ -28,7 +28,7 @@ export const getAllTodo = async (req, res) => {
     }
 }
 
-export const toggleTodo = async (req, res) => {
+ const toggleTodo = async (req, res) => {
     try {
         const todoref = await Todo.findById(req.params.id);
         const todo = await Todo.findOneAndUpdate(
@@ -44,7 +44,7 @@ export const toggleTodo = async (req, res) => {
     }
 }
 
-export const updateTodo = async (req, res) => {
+ const updateTodo = async (req, res) => {
     try {
 
         await Todo.findOneAndUpdate(
@@ -60,7 +60,7 @@ export const updateTodo = async (req, res) => {
     }
 }
 
-export const deleteTodo = async (req, res) => {
+ const deleteTodo = async (req, res) => {
     try {
 
         const todo=await Todo.findByIdAndDelete(req.params.id)
@@ -72,3 +72,5 @@ export const deleteTodo = async (req, res) => {
         return res.status(500).json(error.message);
     }
 }
+
+module.exports= {addTodo, toggleTodo, getAllTodo, updateTodo, deleteTodo};

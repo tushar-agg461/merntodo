@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import dotenv from 'dotenv';
+const mongoose =require("mongoose") ;
+const dotenv =require('dotenv') ;
 dotenv.config();
 
 
@@ -20,4 +20,4 @@ const Connection=()=>{
         console.log("error while connecting the db", error.message);
     })
 }
-export default Connection;
+module.exports= Connection;

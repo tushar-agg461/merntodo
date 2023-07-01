@@ -1,9 +1,9 @@
-import express,{Router} from "express";
-import { addTodo } from "../controller/todoController.js";
-import {getAllTodo } from '../controller/todoController.js'
-import { toggleTodo} from '../controller/todoController.js';
-import  {updateTodo} from '../controller/todoController.js'
-import { deleteTodo } from "../controller/todoController.js";
+const express=require("express");
+const { addTodo } =require("../controller/todoController") ;
+const {getAllTodo } =require('../controller/todoController'); 
+const { toggleTodo}= require('../controller/todoController');
+const {updateTodo} =require('../controller/todoController') ;
+const { deleteTodo } = require("../controller/todoController") ;
 const route= express.Router();
 
 route.post('/todos',addTodo)
@@ -12,4 +12,4 @@ route.get('/todos/:id',toggleTodo)
 route.put('/todos/:id', updateTodo)
 route.delete('/todos/:id',deleteTodo)
 
-export default route;
+module.exports= route;
