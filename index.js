@@ -1,8 +1,8 @@
-const express =require('express') ;
+const express = require('express') ;
 const cors =require('cors');
 const bodyParser =require('body-parser') ;
 const Connection  = require('./databse/db') ;
-const Routes = require('../server/routes/route') ;
+const Routes = require('./routes/route') ;
 
 const dotenv =require('dotenv') ;
 dotenv.config();
@@ -17,6 +17,6 @@ app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-app.use('/',Routes);
+app.use(Routes);
 Connection();
 app.listen(PORT, ()=>console.log("server started at 8000 "));
